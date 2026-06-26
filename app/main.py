@@ -5,7 +5,9 @@ from routers import company,job
 
 app = FastAPI()
 
-app.include_router(company.router),(job.router)
+app.include_router(company.router)
+app.include_router(job.router)
+
 
 
 
