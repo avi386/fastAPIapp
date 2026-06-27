@@ -1,6 +1,6 @@
-from sqlalchemy import Column,Integer,String,Enum,ForeignKey,relationship
+from sqlalchemy import Column,Integer,String,Enum,ForeignKey
 from models.company import Company
-from sqlalchemy.orm import Base,engine,SessionLocal
+from sqlalchemy.orm import Base,engine,SessionLocal,
 
 
 
