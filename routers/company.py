@@ -33,10 +33,8 @@ def update_company(company_id: int, company: CompanyUpdate,db:Session=Depends(ge
     db_company = db.query(Company).filter(Company.id == company_id).first()
     if not db_company:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Company not found")
-    company_data = company.dict(exclude_unset=True)
-    for key, value in company_data.items():
+    for key, value in company.dict().items():
         setattr(db_company, key, value)
-    db.add(db_company)
     db.commit()
     db.refresh(db_company)
     return db_company
