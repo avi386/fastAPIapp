@@ -1,7 +1,7 @@
 from sqlalchemy import Column,Integer,String,Enum,ForeignKey
+from sqlalchemy.orm import relationship
 from models.company import Company
-from sqlalchemy.orm import Base,engine,SessionLocal,
-
+from database import Base,engine,SessionLocal
 
 
 class Job(Base):
@@ -11,4 +11,4 @@ class Job(Base):
     description = Column(String)
     salary = Column(Integer)
     company_id = Column(Integer,ForeignKey("companies.id"))
-    company = relationship("company",back_populates="jobs")
+    company = relationship("Company",back_populates="jobs")
